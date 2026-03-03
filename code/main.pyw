@@ -13,7 +13,7 @@ EXIT_HOTKEY = "ctrl+q"
 TEMP = 0.7
 MODEL = "gpt-4.1-mini"
 PASTE = True
-type_delay = 1 # (lavere -> raskere skriving)
+type_delay = 0.2 # (lavere -> raskere skriving)
 
 # flere eksempler, aldri oppgi at du er en bot, gå helt inn i rollen, "du er en elev.."
 # enkelt språk hvis det er fremmedspråk
@@ -28,10 +28,7 @@ Avoid looping or concluding after every sentence. Do not explain or expand on th
 Keep the answer tight and avoid rambling. Always answer in the same language the user uses. 
 The goal is to give a short framework of clear points or descriptions that the user can build on.
 Example output:
-Question: What is the square root of 64? Answer: 8
-Question: Hva er sakprosa? Answer: Sakprosa kan være mye forskjellig. Fellesnevner er at tekstene har hold i virkeligheten. 
-Uansett hvor objektiv man er, vil man fortsatt presentere et eget virkelighetsbilde.
-""".strip()
+Question: What is the square root of 64? Answer: 8""".strip()
 
 # setup
 dotenv_path = os.path.join(os.path.dirname(__file__), "config.env")
@@ -56,7 +53,7 @@ def send_to_chat(client, user_prompt):
 
 def get_selected_text():
     keyboard.press_and_release("ctrl+c")
-    time.sleep(0.1)
+    time.sleep(0.25)
     return pyperclip.paste()
 
 
