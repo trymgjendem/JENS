@@ -1,0 +1,4 @@
+keyboard
+pyperclip
+openai
+python-dotenv
